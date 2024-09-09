@@ -1,0 +1,26 @@
+
+
+
+
+
+   {{#if jobdata.length}}
+      <div class="card animate__animated animate__fadeInUp">
+        <img src="/static/image/{{this.image}}" alt="No Image">
+        <p class="job-title">Title: {{job_title}}</p>
+        <p class="job-info">Type: {{this.job_type}} </p> 
+        <p class="job-location">Location: {{this.location}} </p> 
+        <p class="job-salary">Salary: {{this.salary}}</p>
+        <p class="job-description">Description: {{this.description}}</p>
+           
+           <form action="/jobs/apply" method="post">
+           <input type="hidden" value="{{this.id}}" name="job_id">
+           <input type="hidden" value="{{this.id}}" name="company_id">
+           <input type="hidden" value="{{this.id}}" name="user_id">
+           <button type="submit" class="btn btn-primary">Apply</button>
+           </form>
+
+      </div>
+
+{{else}}
+    <p>No jobs found.</p>
+{{/if}}

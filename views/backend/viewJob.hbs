@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posted Jobs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      background-image: url('/static/image/background.jpg'); 
+      background-size: cover;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff; 
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.8); 
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+    .no-data {
+      text-align: center;
+      color: #fff; 
+      margin-top: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+<h1>Posted Jobs</h1>
+
+{{#if jobData}}
+
+<table>
+  <tr>
+    <th>Job Title</th>
+    <th>Salary</th>
+    <th>Job Type</th>
+    <th>Location</th>
+    <th>Description</th>
+  </tr>
+  {{#each jobData}}
+  <tr>
+    <td>{{this.job_title}}</td>
+    <td>{{this.salary}}</td>
+    <td>{{this.job_type}}</td>
+    <td>{{this.location}}</td>
+    <td>{{this.description}}</td>
+  </tr>
+  {{/each}}
+</table>
+
+{{else}}
+  <p class="no-data">No job data found</p>
+{{/if}}
+
+</body>
+</html>

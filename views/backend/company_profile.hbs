@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            width: 300px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-info p {
+            margin: 10px 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .company-info p span {
+            color: #555;
+        }
+
+        .company-info p:first-child {
+            margin-top: 0;
+        }
+
+        .company-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .company-info p:not(:last-child) {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+  {{#if company}}
+    <div class="company-info">
+      <p><span>Name:</span> {{company.name}}</p>
+      <p><span>Email:</span> {{company.email}}</p>
+      <p><span>Phone:</span> {{company.phone}}</p>
+      <p><span>Location:</span> {{company.location}}</p>
+    </div>
+  {{else}}
+    <p>No company found</p>
+  {{/if}}
+</div>
+
+</body>
+</html>

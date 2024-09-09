@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        /* Reset default styles */
+        body, table {
+            margin: 20px;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333; /* Text color */
+        }
+        /* Table styles */
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            background-color: #fff; /* White background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2; /* Light gray background for table header */
+        }
+        /* Custom styles */
+        .sn-column {
+            width: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff; /* Blue header color */
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each companies}}
+                <tr>
+                    <td>{{ this.name }}</td>
+                    <td>{{ this.email }}</td>
+                    <td>{{ this.phone }}</td>
+                    <td>{{ this.location }}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <!-- Include any necessary JavaScript files -->
+</body>
+</html>

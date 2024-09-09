@@ -1,0 +1,168 @@
+/* Reset default browser styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    align-items: center;
+    background-color: #1509ec;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.logo img {
+    height: 40px;
+    width: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #12acf3; /* Change color on hover */
+}
+
+.user-actions a {
+    text-decoration: none;
+    position: relative;
+    color: #fff;
+    background-color: #0acdfe;
+    padding: 8px 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.user-actions a:hover {
+    background-color: #200cf3;
+}
+
+.dropdown-content {
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    display: none;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-top: 2px; 
+    right: 0; 
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+
+
+
+
+/* Footer styles */
+footer {
+    background-color: #0b03eb;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links ul {
+    list-style-type: none;
+}
+
+.footer-links ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-links ul li a:hover {
+    color: #0ad0f3;
+}
+
+/* Add hover effect for user-actions */
+.user-actions a:hover {
+    background-color: #ccc;
+    color: #0b12f0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hide the register options initially */
+.register-options {
+    display: none;
+}
+
+/* Style for the register options */
+.register-option {
+    display: block;
+    margin-top: 5px;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+    background-color: transparent;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown content when hovering over dropdown button */
+.dropdown:hover .dropdown-content {
+    display: block;
+}

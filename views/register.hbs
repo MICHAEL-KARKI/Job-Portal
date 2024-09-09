@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{title}}</title>
+
+    <link rel="stylesheet" href="static/css/register.css">
+   </head>
+<body>
+  <div class="wrapper">
+    <h2>Registration For Job Seeker</h2>
+      <form action="/register" method="POST" enctype="multipart/form-data">
+      <div class="input-box">
+        <input type="text" name="name" placeholder="Enter your name">
+      </div>
+      {{#if error}}
+      {{#each error}}
+      <div>
+        <strong>
+          {{this.name.msg}}
+        </strong>
+      </div>
+      {{/each}}
+      {{/if}}
+
+      <div class="input-box">
+        <input type="text" name="email" placeholder="Enter your email" >
+      </div>
+      {{#if error}}
+      {{#each error}}
+      <div>
+        <strong>
+          {{this.email.msg}}
+        </strong>
+      </div>
+      {{/each}}
+      {{/if}}      
+      <div class="input-box">
+        <input type="number" name="phone" placeholder="Enter Your Phone Number" >
+      </div>
+      {{#if error}}
+      {{#each error}}
+      <div>
+        <strong>
+          {{this.phone.msg}}
+        </strong>
+      </div>
+      {{/each}}
+      {{/if}}
+      <div class="input-box">
+        <input type="password" name="password" placeholder="Create password" >
+      </div>
+      {{#if error}}
+      {{#each error}}
+      <div>
+        <strong>
+          {{this.password.msg}}
+        </strong>
+      </div>
+      {{/each}}
+      {{/if}}
+      <div class="input-box">
+        <input type="file" id="file" name="image" accept="image/*">
+      </div>
+      <div class="policy">
+        <input type="checkbox">
+        <h3>I accept all terms & condition</h3>
+      </div>
+      <div class="input-box button">
+        <input type="Submit" value="Register Now">
+      </div>
+      <div class="text">
+        <h3>Already have an account? <a href="/login">Login now</a></h3>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

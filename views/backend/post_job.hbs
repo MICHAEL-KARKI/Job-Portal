@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title> 
+    <link rel="stylesheet" href="/static/css/job.css">
+    <style>
+      /* Example CSS for Textarea */
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      /* Additional styling for the select dropdown */
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        appearance: none;
+        background: #fff;
+      }
+
+      .wrapper {
+        background: #fff;
+        padding: 20px 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+      }
+
+      .wrapper h2 {
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+      }
+
+      .input-box {
+        margin-bottom: 15px;
+      }
+
+      .input-box input,
+      .input-box textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      .input-box input[type="file"] {
+        padding: 3px;
+      }
+
+      .input-box .button {
+        text-align: center;
+      }
+
+      .input-box .button input {
+        background: #007BFF;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      .input-box .button input:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+<body>
+  <div class="wrapper">
+    <h2>Post Job</h2>
+    <form action="/backend/company/jobPost" method="post" enctype="multipart/form-data">
+      <div class="input-box">
+        <input type="text" name="job_title" placeholder="Job Title">
+      </div>
+      <div class="input-box">
+        <select name="job_type">
+          <option value="" disabled selected>Select Job Type</option>
+          <option value="full-time">Full-time</option>
+          <option value="part-time">Part-time</option>
+          <option value="contract">Contract</option>
+          <option value="temporary">Temporary</option>
+          <option value="internship">Internship</option>
+        </select>
+      </div>
+      <div class="input-box">
+        <input type="text" name="location" placeholder="Job Location">
+      </div>
+      <div class="input-box">
+        <input type="number" name="salary" placeholder="Enter Salary">
+      </div>
+      <div class="input-box">
+        <textarea name="description" placeholder="Job Description"></textarea>
+      </div>
+      <div class="input-box">
+        <input type="file" id="file" name="image" accept="image/*">
+      </div>
+      <div class="input-box button">
+        <input type="submit" value="Post">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

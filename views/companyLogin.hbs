@@ -1,0 +1,52 @@
+
+   <title>{{title}}</title>
+    <link rel="stylesheet" href="/static/css/companyLogin.css" />
+
+  <body>
+    <section class="wrapper">
+      <div class="form signup">
+        <header>Signup</header>
+        <form action="/companySignup" method="post">
+          <input type="text" name="name" placeholder="Company Name"  />
+          <input type="text" name="email" placeholder="Email Address"  />
+          <input type="text" name="phone" placeholder="Phone Number"  />
+          <input type="text" name="location" placeholder="Location"  />
+          <input type="password" name="password" placeholder="Password"  />
+          <div class="checkbox">
+            <input type="checkbox" id="signupCheck" />
+            <label for="signupCheck">I accept all terms & conditions</label>
+          </div>
+          <button class="btn btn-secondary">Signup</button>
+        </form>
+      </div>
+
+
+
+      <div class="form login">
+        <header>Company Login</header>
+        <form action="/companySignup/companyLogin" method="post">
+          <input type="text" name="email" placeholder="Email address"  />
+          <input type="password" name="password" placeholder="Password"  />
+          <a href="#">Forgot password?</a>
+          <button type="submit", class="btn btn-primary">Login</button>
+        </form>
+      </div>
+
+
+
+
+
+      <script>
+        const wrapper = document.querySelector(".wrapper"),
+          signupHeader = document.querySelector(".signup header"),
+          loginHeader = document.querySelector(".login header");
+
+        loginHeader.addEventListener("click", () => {
+          wrapper.classList.add("active");
+        });
+        signupHeader.addEventListener("click", () => {
+          wrapper.classList.remove("active");
+        });
+      </script>
+    </section>
+  </body>

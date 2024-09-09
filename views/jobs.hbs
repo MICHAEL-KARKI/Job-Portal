@@ -1,0 +1,200 @@
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    /* Your CSS styles for the job card */
+    .card {
+      display: inline-block;
+      margin: 2rem;
+      width: 250px;
+      height: 420px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 20px;
+      animation: slideInUp 0.5s ease forwards;
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .job-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .job-info {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .job-location {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .job-salary {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .job-description {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+
+    button {
+      display: inline-block;
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #4070f4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0e4bf1;
+    }
+/* CSS styles for the search input and icon */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    width: 200px;
+    transition: width 0.3s ease;
+  
+}
+
+.search-button {
+    background-color: #4070f4;
+    color: #fff;
+    border: none;
+    width: 40px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: -3opx; /* Adjust as needed */
+    margin-top: -3px;
+    cursor: pointer;
+    transition: margin 0.3s ease;
+}
+
+/* Animation styles */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animate the search input */
+.search-input.animated {
+    animation: slideInLeft 0.5s forwards;
+}
+
+/* Animate the search button */
+.search-button.animated {
+    animation: slideInLeft 0.5s forwards;
+}
+
+
+    
+  </style>
+</head>
+<body>
+
+
+  {{#if jobApplySuccess}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{jobApplySuccess}}</strong> 
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+
+<!-- HTML code for the search form -->
+<form action="/jobs" method="GET" >
+    <div class="search-bar">
+        <input type="search" placeholder="Search job" class="search-input" name="search" value="{{searchTerm}}">
+        <button type="submit" class="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+</form>
+
+  
+  {{!-- {{#if jobs}} --}}
+    {{#each jobs}}
+      <div class="card animate__animated animate__fadeInUp">
+        <img src="/static/image/{{this.image}}" alt="No Image">
+        <p class="job-title">Post: {{job_title}}</p>
+        <p class="job-info">Type: {{this.job_type}} </p> 
+        <p class="job-location">Location: {{this.location}} </p> 
+        <p class="job-salary">Salary: {{this.salary}}</p>
+        <p class="job-description">Description: {{this.description}}</p>
+           
+           <form action="/jobs/apply" method="post">
+           <input type="hidden" value="{{this.id}}" name="job_id">
+           <input type="hidden" value="{{this.id}}" name="company_id">
+           <input type="hidden" value="{{this.id}}" name="user_id">
+           <button type="submit" class="btn btn-primary">Apply</button>
+           </form>
+
+      </div>
+
+
+    {{/each}}
+  {{!-- {{/if}} --}}
+
+<div class="pagination">
+        {{#ifEqSmaller currentPages}}
+         <a href="#" class="pagination-link">&laquo; Previous</a>
+        {{else}}
+  <a href="/jobs?offset={{ dec currentPages }}" class="pagination-link">&laquo; Previous</a>
+  {{/ifEqSmaller}}
+  
+  <span class="current-page">{{ inc currentPages  }}</span>
+
+  {{#ifEqGreater currentPages totalPageCount }}
+  
+  {{else}}
+  <a href="/jobs?offset={{ inc currentPages }}" class="pagination-link">Next &raquo;</a>
+  {{/ifEqGreater}}
+</div>
+
+</body>
+

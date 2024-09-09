@@ -1,0 +1,172 @@
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS -->
+    {{!-- <link rel="stylesheet" href="/static/css/company.css"> --}}
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        nav.sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 250px;
+            background-color: #343a40; /* Dark background for sidebar */
+            color: #fff; /* White text */
+            transition: width 0.3s ease;
+        }
+
+
+        .menu-bar {
+            padding: 20px;
+        }
+
+        .menu-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-link {
+            margin-bottom: 10px;
+        }
+
+        .nav-link a {
+            color: #fff; /* White text for links */
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-link a:hover {
+            background-color: #495057; /* Darker background on hover */
+        }
+
+        .bottom-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background-color: #ced4da; /* Gray switch */
+            border-radius: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .switch:before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #fff; /* White circle */
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .switch.active:before {
+            transform: translateX(20px); /* Move the circle to the right */
+        }
+
+        .home {
+            margin-left: 250px; /* Ensure content doesn't get hidden behind sidebar */
+            padding: 20px;
+        }
+
+        .text {
+            font-size: 24px;
+            color: #fbfdff; /* Dark gray text */
+        }
+                .text1 {
+            font-size: 24px;
+            color: #000000;
+            padding: 200px; /* Dark gray text */
+        }
+    </style>
+</head>
+<body>
+
+ <nav class="sidebar close">
+        <header>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <ul class="menu-links">
+                    {{!-- <li class="nav-link"> --}}
+                        {{!-- <a href="/backend/admin/admin_profile"> --}}
+                            {{!-- <i class='bx bx-home-alt icon' ></i> --}}
+                            {{!-- <span class="text nav-text">Dashboard</span> --}}
+                        {{!-- </a> --}}
+                    {{!-- </li> --}}
+
+                    <li class="nav-link">
+                        <a href="/backend/admin/users">
+                            <i class='bx bx-user icon' ></i>
+                            <span class="text nav-text">Job Seekers</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/backend/admin/companies">
+                            <i class='bx bx-building icon' ></i>
+                            <span class="text nav-text">Companies</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="/logout">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="home">
+        <div class="text">Admin Dashboard</div>
+    </section>
+
+
+<script src="/static/js/admin.js"></script>
+
+</body>
+</html>

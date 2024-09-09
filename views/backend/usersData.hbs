@@ -1,0 +1,63 @@
+
+
+ <style>
+        /* Reset default styles */
+        body, table {
+            margin: 20px;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        /* Table styles */
+        table {
+            width: 90%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+
+        /* Custom styles */
+        .sn-column {
+            width: 50px;
+        }
+
+        h1{
+            text-align: center;
+        }
+</style>
+
+<body>
+    <h1>{{ title }}</h1>
+    <table>
+        <thead>
+            <tr>
+                {{!-- <th>S.N</th> --}}
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+                <tr>
+                    {{!-- <td>{{ @index }}</td> --}}
+                    <td>{{ this.name }}</td>
+                    <td>{{ this.email }}</td>
+                    <td>{{ this.phone }}</td>
+                     
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <!-- Include any necessary JavaScript files -->
+</body>

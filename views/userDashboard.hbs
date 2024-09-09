@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #6219d8;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            width: 300px;
+            background-color: #4e8fa3;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .card img {
+            display: block;
+            margin: 0 auto 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-info {
+            text-align: left;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .logoutBtn {
+            background-color: #dc3545;
+            color: #fff;
+            margin-left: 20px;
+        }
+
+        .logoutBtn:hover {
+            background-color: #c82333;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+            margin-left: 20px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .resumeContainer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .resumeContainer:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .resumeContainer label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .resumeContainer img {
+            max-width: 400px;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .expandedResume {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 80%;
+            max-height: 80%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    {{#if loginSuccess}} 
+<strong>{{loginSuccess}}</strong>
+{{/if}}
+
+<div class="container">
+    {{#if user}}
+        <div class="card animate__animated animate__fadeInUp">
+            <img src="/static/image/{{user.image}}" alt="No Image">
+            <div class="user-info">
+                <p><strong>Name:</strong> {{user.name}}</p>
+                <p><strong>Email:</strong> {{user.email}}</p>
+                <p><strong>Phone:</strong> {{user.phone}}</p>
+            </div>
+        </div>
+        <div class="resumeContainer">
+            <label for="resume">Resume</label>
+            <img src="/static/image/{{user.resume}}" alt="Resume" onclick="expandResume()">
+        </div>
+    {{else}}
+        <p>No data found</p>
+    {{/if}}
+    <button class="btn btn-primary"><a href="/userDashboard/appliedJobs">Applied Jobs</a></button>
+    <form action="/userDashboard/uploadResume" method="POST" enctype="multipart/form-data">
+        <label for="resume">Insert Resume</label><br>
+        <input type="file" name="resume" class="btn btn-primary"></input><br>
+        <button type="submit" class="btn btn-primary">Upload Resume</button>
+    </form>
+    <form action="/logout" method="GET">
+        <div class="logout">
+            <button class="btn btn-primary">Logout</button>
+        </div>
+    </form>
+</div>
+<!-- Expand resume image when clicked on it -->
+<script>
+    function expandResume() {
+        var x = document.getElementById("resume");
+        if (x.style.width === "180px") {
+            x.style.width = "523px";
+        } else {
+            x.style.width = "180px";
+        }
+    }
+</script>
+</body>
+</html>
